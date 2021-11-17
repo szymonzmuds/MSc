@@ -37,6 +37,10 @@ def createPlotForAllClasses(models):
 
 
 if __name__ == "__main__":
+    print("create all required directories")
+    createDirectories(simplePlotsDirs)
+
+
     print("read data")
     models = []
     for model in paths:

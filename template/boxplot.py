@@ -56,6 +56,10 @@ def createBoxplotsForAllDists(models):
 
 if __name__ == "__main__":
     # all variables are avaible to modify in consts.py 
+
+    print("create all required directories")
+    createDirectories( boxplotDirs )
+
     print("read data")
     models = []
     for model in paths:

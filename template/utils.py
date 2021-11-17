@@ -1,8 +1,14 @@
 import numpy as np 
 import matplotlib.pyplot as plt
 import pandas as pd
+import os
 
 from consts import *
+
+def createDirectories(dirs):
+    for dir in dirs:
+        if not os.path.isdir(dir):
+            os.mkdir(dir)
 
 def readData(path, name):
     matrix = np.fromfile(path + name)

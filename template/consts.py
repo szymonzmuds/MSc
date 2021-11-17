@@ -59,6 +59,12 @@ newShape = {
     zIouData: (scanNum, 16, len(kittiClasses)) # 16 stands for number of z dists
 }
 
+boxplotDirs = [
+   "partial" ,"class", "dist"
+]
 
+simplePlotsDirs = [
+    "plotsByDist"
+]
 
 
