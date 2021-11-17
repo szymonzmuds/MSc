@@ -2,7 +2,8 @@ import numpy as np
 import torch
 from asymptote import asymptote as asp
 
-model_name = "eval/modelName"
+path = "eval"
+model_name = path + "/modelName"
 
 MODEL_PATH = "/path/to/model/modelName/checkpoints/max-iou-test.pt"
 PATH_CONFIG = "configs/semantic_kitti/spvcnn/cr0p5.yaml"  # path to config file

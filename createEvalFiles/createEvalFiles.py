@@ -53,6 +53,10 @@ def countAcc(npy, index):
 if __name__ == "__main__":
     startTime = time.time()
 
+    if not os.path.isdir(path):
+        print("Creating main directory")
+        os.mkdir(model_name)
+
     if not os.path.isdir(model_name):
         print("Creating destination path")
         os.mkdir(model_name)
