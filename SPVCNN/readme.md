@@ -15,12 +15,15 @@ To see params check all configs files
 
     1. create docker image
         open terminal and go to docker directory, then run:
+            
             docker build -t ImageName .
 
     2. create docker container
+            
             docker run --gpus all --name containerName -it -v /path/to/host/files:/path/container ImageName
 
     3. start existing container:
+            
             docker start -i containerName
 
 2) Run training process
