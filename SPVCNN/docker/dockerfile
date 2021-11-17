@@ -1,0 +1,18 @@
+# select this depends on your cuda version
+# for more see
+# https://hub.docker.com/r/nvidia/cuda
+FROM nvcr.io/nvidia/pytorch:21.02-py3  
+
+# Installing prequisities:
+RUN apt-get update && \
+    apt-get upgrade -y && \ 
+    apt-get install git && \
+    apt install libgl1-mesa-glx && \
+    apt install python3-opencv
+
+RUN pip install "git+https://github.com/tqdm/tqdm.git@devel#egg=tqdm" \
+    && pip install torchpack \
+    && pip install numba
+
+RUN apt-get install libsparsehash-dev 
+RUN pip install --upgrade git+https://github.com/mit-han-lab/torchsparse.git
