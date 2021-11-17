@@ -1,7 +1,7 @@
 This code is based on https://github.com/mit-han-lab/spvnas
 To get more information about network, see original repo (especially closed issues)
 
-Modify files: train.py, core/builder.py
+Modify files: train.py, core/builder.py, core/models/semantic_kitti/spvcnn.py
 
 New: all dataLoader (all are based on core/datasets/semantic_kitti.py),
      dockerfile,

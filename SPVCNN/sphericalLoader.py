@@ -226,12 +226,6 @@ class SmodifyPointCloudSemanticKITTIInternal:
         dzeta = np.arcsin(block[:, 2] / r[:])  # pion
         block[:, :3] = np.stack((r, fi, dzeta), axis = 1)
 
-        #block[:, 0] = [asp.smoothTransition(i, tranStart, tranDur, tranSteps, endA, newAs, newBs, breakX) for i in block[:, 0]] 
-        #block[:, 1] = [asp.smoothTransition(i, tranStart, tranDur, tranSteps, endA, newAs, newBs, breakX) for i in block[:, 1]]
-#       y =[asp.smoothTransition(i, tranStart, tranDur, tranSteps, endA, newAs, newBs, breakX) for i in x]
-#       block[np.absolute(block[:, 0]) > mod] = np.sign(block[np.absolute(block[:, 0]) > mod]) * (mod + (np.absolute(block[np.absolute(block[:, 0]) > mod]) -mod) / divider)
-#       block[np.absolute(block[:, 1]) > mod] = np.sign(block[np.absolute(block[:, 1]) > mod]) * (mod + (np.absolute(block[np.absolute(block[:, 1]) > mod]) -mod) / divider)
-
         pc_ = np.round(block[:, :3] / self.voxel_size)
         pc_ -= pc_.min(0, keepdims=1)
         #inds = self.inds[index]

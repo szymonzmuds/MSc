@@ -220,19 +220,6 @@ class DmodifyPointCloudSemanticKITTIInternal:
 
         block[:, 3] = block_[:, 3]
 
-        #convert to cylinder
-        # rho = np.sqrt(block[:, 0] ** 2 + block[:, 1] ** 2)
-        # phi = np.arctan2(block[:, 1], block[:, 0])
-        # block[:, :3] = np.stack((rho, phi, block[:, 2]), axis=1)
-
-        #block[:, 0] = [asp.smoothTransition(i, tranStart, tranDur, tranSteps, endA, newAs, newBs, breakX) for i in block[:, 0]] 
-        #block[:, 1] = [asp.smoothTransition(i, tranStart, tranDur, tranSteps, endA, newAs, newBs, breakX) for i in block[:, 1]]
-#       y =[asp.smoothTransition(i, tranStart, tranDur, tranSteps, endA, newAs, newBs, breakX) for i in x]
-#       block[np.absolute(block[:, 0]) > mod] = np.sign(block[np.absolute(block[:, 0]) > mod]) * (mod + (np.absolute(block[np.absolute(block[:, 0]) > mod]) -mod) / divider)
-#       block[np.absolute(block[:, 1]) > mod] = np.sign(block[np.absolute(block[:, 1]) > mod]) * (mod + (np.absolute(block[np.absolute(block[:, 1]) > mod]) -mod) / divider)
-
-        #pc_ = np.round(block[:, :3] / self.voxel_size)
-
         # diffrent grid size
         pc_ = block.copy()
         lim1 = 10

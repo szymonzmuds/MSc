@@ -203,7 +203,9 @@ class SPVCNN(nn.Module):
         x3 = self.stage3(x2)
         x4 = self.stage4(x3)
         z1 = voxel_to_point(x4, z0)
-        z1.F = z1.F + self.point_transforms[0](z0.F)
+        # TODO switching between point and no point branch
+        z1.F = z1.F + self.point_transforms[0](z0.F) # with point branch
+        # z1.F = z1.F  # without point branch
 
         y1 = point_to_voxel(x4, z1)
         y1.F = self.dropout(y1.F)
@@ -215,7 +217,9 @@ class SPVCNN(nn.Module):
         y2 = torchsparse.cat([y2, x2])
         y2 = self.up2[1](y2)
         z2 = voxel_to_point(y2, z1)
-        z2.F = z2.F + self.point_transforms[1](z1.F)
+        # TODO switching between point and no point branch
+        z2.F = z2.F + self.point_transforms[1](z1.F) # point branch
+        # z2.F = z2.F  # no point models
 
         y3 = point_to_voxel(y2, z2)
         y3.F = self.dropout(y3.F)
@@ -227,7 +231,9 @@ class SPVCNN(nn.Module):
         y4 = torchsparse.cat([y4, x0])
         y4 = self.up4[1](y4)
         z3 = voxel_to_point(y4, z2)
-        z3.F = z3.F + self.point_transforms[2](z2.F)
+        # TODO switching between point and no point branch 
+        z3.F = z3.F + self.point_transforms[2](z2.F) # point branch
+        # z3.F = z3.F  # no point branch
 
         out = self.classifier(z3.F)
         return out
